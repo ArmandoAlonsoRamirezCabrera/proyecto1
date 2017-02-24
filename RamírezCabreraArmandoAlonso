@@ -1,0 +1,708 @@
+/*Se necesita crear las siguientes fuentes o tipo de letra
+AgencyFB-Reg-18.vlw
+BerlinSansFB-Reg-49.vlw
+CalifornianFB-Italic-29.vlw
+CharlemagneStd-Bold-88.vlw
+Consolas-7.vlw
+Consolas-20.vlw
+Consolas-48.vlw
+NuevaStd-Cond-18
+NuevaStd-Cond-25
+NuevaStd-Cond-28
+NuevaStd-Cond-48
+*/
+ArrayList <Tato> Tatos;
+PGraphics tato;
+int pantalla1, pantalla2;
+int escenario;
+PFont font;
+import processing.sound.*;
+SoundFile file;
+void setup(){
+   size(1050,700);
+     escenario = 1;
+  size(1050,700);
+  background(10);
+  frameRate(2);
+tato= createGraphics(800,600);
+  Tatos = new ArrayList<Tato>();
+    int aa = int(random(100));
+    Tatos.add(new Tato(aa));
+  FireGIrl = createGraphics(500,500);
+  Beckys = new ArrayList<Becky>();
+    int bb = int(random(100));
+    Beckys.add(new Becky(bb));
+Comun = createGraphics(800,600);
+  Comuns = new ArrayList<Comun>();
+    int cc = int(random(100));
+    Comuns.add(new Comun(cc));
+frameRate(2);
+  Oraculo = createGraphics(1700,3900);
+ Oraculos = new ArrayList<Oraculo>();
+    int dd = int(random(100));
+    Oraculos.add(new Oraculo(dd));
+PX=createGraphics(800,600);
+  Pixlys = new ArrayList<Pixly>();
+    int ee = int(random(100));
+    Pixlys.add(new Pixly(ee));
+inicios = new ArrayList<inicio>();
+    int kk = int(random(100));
+    inicios.add(new inicio(kk));
+inicio2s = new ArrayList<inicio2>();
+    int ll = int(random(100));
+    inicio2s.add(new inicio2(ll));
+inicio3s = new ArrayList<inicio3>();
+    int mm = int(random(100));
+    inicio3s.add(new inicio3(mm));
+stage2s = new ArrayList<stage2>();
+    int gg = int(random(100));
+    stage2s.add(new stage2(gg));
+stage3s = new ArrayList<stage3>();
+    int hh = int(random(100));
+    stage3s.add(new stage3(hh));
+stage4s = new ArrayList<stage4>();
+    int ii = int(random(100));
+    stage4s.add(new stage4(ii));
+stage6s = new ArrayList<stage6>();
+    int ji = int(random(100));
+    stage6s.add(new stage6(ji));
+stage7s = new ArrayList<stage7>();
+    int jk = int(random(100));
+    stage7s.add(new stage7(jk));
+stage8s = new ArrayList<stage8>();
+    int jl = int(random(100));
+    stage8s.add(new stage8(jl));
+loses = new ArrayList<lose>();
+    int hl = int(random(100));
+    loses.add(new lose(hl));
+fgs = new ArrayList<fg>();
+    int hm = int(random(100));
+    fgs.add(new fg(hm));
+fg1s = new ArrayList<fg1>();
+    int en = int(random(100));
+    fg1s.add(new fg1(en));
+fg2s = new ArrayList<fg2>();
+    int el = int(random(100));
+    fg2s.add(new fg2(el));
+wins = new ArrayList<win>();
+    int xn = int(random(100));
+    wins.add(new win(xn));
+fg4s = new ArrayList<fg4>();
+    int ty = int(random(100));
+    fg4s.add(new fg4(ty));    
+}
+void draw(){
+  {background(0);  //MODALIDADES
+  font = loadFont("Consolas-48.vlw");
+  textFont(font);
+  fill(random(255,70),random(19,140),random(89,255));
+  text("Modalidad de juego",300,50); 
+  font = loadFont("Consolas-20.vlw");
+  textFont(font);
+  fill(random(255,70),random(100,190),random(89,215));
+  text("*Se irán indicando una serie de teclas ESPECÍFICAS que deberán oprimirse",105,180);
+  text("para poder atacar a tu adversario",140,210);
+  text("*El jugador marcado con el círculo rojo (   ) comienza comienza la partida",105,150); 
+  fill(255,0,0);ellipse(575,145,20,20);
+  fill(random(25,70),random(59,140),random(9,225)); text("**Press STAR to begin >>",700,270);
+  font = loadFont("CalifornianFB-Italic-29.vlw");
+  textFont(font);
+  fill(235,5,10);
+  text("NOTA",120,550);
+  text("Si la acción seleccionada no se ejecuta automáticamente, haga CLICK en la ventana",20,580);
+  text("de Processing y vuelva a presionar la letra de su selección",20,600);
+} //FIN MODALIDADES
+if(keyCode==ENTER)   // PANTALLA DE INICIO
+   for (inicio w:inicios){
+   w.pantallaInicial();}
+if(key=='a' || key=='A')
+   for (inicio2 x:inicio2s){
+   x.pantallaCaracteristicas(); }
+if(key=='m'|| key=='M'==true)
+     for (inicio3 y:inicio3s){
+   y.pantallaSeleccionn();}    
+if(key=='e' || key=='E')  //PELEA 1     TOMATO v ORACULO
+ for (Tato t:Tatos){ background(#FF9A3B); font = loadFont("Consolas-20.vlw");
+   t.personaje1();
+  for (Oraculo o:Oraculos)
+   o.personaje4(); textFont(font);fill(#005166);
+  text("Jugador 1_Tomato Head",85,20); text("V",550,20);text("Jugador 2_Oráculo",750,20); 
+  text("ATAQUE 'push'",85,70);
+  fill(20);rect(240,47,30,30); fill(255,0,0); ellipse(65,17,20,20);rect(100,100,100,20); 
+  rect(830,100,100,20);fill(255); text("Z",250,70);text("200",130,118);
+  text("200",860,118);}   //FIN PELEA 1 TOMATO VS ORACULO  
+if(key=='r' || key=='R')   //PELEA 2     FireGirl v Mr.P
+   for (Becky b:Beckys){ background(270,50,180); font = loadFont("Consolas-20.vlw");
+   b.personaje2();
+ for (Pixly p:Pixlys)
+   p.personaje5(); textFont(font);fill(#006601);
+  text("Jugador 1_Mr. Pixly",85,20); text("V",550,20);text("Jugador 2_Fire Girl",750,20); 
+  text("ATAQUE 'push'",750,70);
+  fill(20);rect(900,47,30,30); fill(255,0,0); ellipse(730,17,20,20);rect(100,100,100,20); 
+  rect(830,100,100,20);fill(255); text("J",910,70);text("200",130,118);
+  text("200",860,118);}   
+if(key=='t' || key=='T')   //PELEA 3     Comun v FireGirl
+  for (Comun c:Comuns){  background(#5A5A59); font = loadFont("Consolas-20.vlw");
+   c.personaje3();
+ for (Becky b:Beckys)
+   b.personaje2();textFont(font);fill(#5A381F);
+  text("Jugador 1_El Abominable Hombre Común",85,20); text("V",550,20);text("Jugador 2_Fire Girl",750,20); 
+  text("ATAQUE 'push'",750,70);
+  text("A pesar de ser una pelea muy reñida",300,170);
+  text("Lamento informarte que es imposible ganar con El Hombre Común",270,190);fill(#274A74); 
+  text("press U>>",590,350);
+  font = loadFont("CharlemagneStd-Bold-88.vlw"); textFont(font);
+text("YOU LOSE",264,320);
+  fill(255,0,0); ellipse(65,17,20,20); rect(830,100,10,20);fill(255); rect(100,100,100,20);rect(840,100,90,20);}   
+if(key=='d' || key=='D')   //PELEA 4     Oraculo v Comun
+    for (Oraculo o:Oraculos){ background(#6A6207); font = loadFont("Consolas-20.vlw");
+   o.personaje4();
+   textFont(font);fill(#260D66);
+  text("Jugador 1_El Abominable Hombre Común",85,20); text("V",550,20);text("Jugador 2_Oráculo",750,20); 
+  text("ATAQUE 'push'",750,70);
+  text("Definitivamente, todos pueden vencer al Abominable Hombre Común ",350,170);  fill(255,0,0); 
+  ellipse(730,17,20,20); rect(830,100,85,20);
+  fill(255);rect(100,100,100,20); rect(915,100,15,20); fill(#274A74); text("press W>>",580,420);
+  font = loadFont("CharlemagneStd-Bold-88.vlw"); textFont(font); fill(#274A74);
+text("YOU WIN",88,390); scale(0.26);translate(800,1790);
+ for (Comun c:Comuns)
+   c.personaje3();}   
+if(key=='f' || key=='F')    //PELEA 5     Mr.P v TOMATO
+   for (Pixly p:Pixlys){ background(#311E64);
+   p.personaje5(); 
+ font = loadFont("Consolas-20.vlw"); textFont(font); fill(#B5A600);
+text("Jugador 1_Mr. Pixly",85,20); text("V",550,20);text("Jugador 2_Tomato Head",750,20); 
+text("ATAQUE 'push'",85,70);
+  fill(20);rect(240,47,30,30); fill(255,0,0); ellipse(65,17,20,20);rect(100,100,100,20); 
+  rect(830,100,100,20);fill(220); text("G",250,70);text("200",130,118);
+  text("200",860,118); translate(600,-50);
+for (Tato t:Tatos)
+t.personaje1();}  
+if(key=='z' || key=='Z')
+ for (stage2 q:stage2s){
+   q.pantallaP2(); for (Tato t:Tatos)
+   t.personaje1();
+  for (Oraculo o:Oraculos)
+   o.personaje4();}
+if(key=='i' || key=='I')
+   for (stage3 w:stage3s){
+   w.pantallaP3(); for (Tato t:Tatos)
+   t.personaje1();
+  for (Oraculo o:Oraculos)
+   o.personaje4();}
+if(key=='x' || key=='X')
+   for (stage4 y:stage4s){
+   y.pantallaP4(); for (Tato t:Tatos)
+   t.personaje1();
+  for (Oraculo o:Oraculos)
+   o.personaje4();}
+if(key=='c' || key=='C')
+   for (stage6 z:stage6s){
+   z.pantallaP6(); for (Tato t:Tatos)
+   t.personaje1();
+  for (Oraculo o:Oraculos)
+   o.personaje4();}
+if(key=='1')
+   for (stage7 z:stage7s){
+   z.pantallaP7(); for (Tato t:Tatos)
+   t.personaje1();
+  for (Oraculo o:Oraculos)
+   o.personaje4();}
+if(key=='3')
+   for (stage8 z:stage8s){
+   z.pantallaP8();  for (Oraculo o:Oraculos)
+   o.personaje4(); {scale(0.3);translate(200,2000); rotate(PI/-3.0);}for (Tato t:Tatos)
+   t.personaje1(); }
+if(key=='u' ||key=='U') 
+   for (lose w:loses){
+   w.pantallaLose();}
+if(key=='j' ||key=='J')  
+    for (fg w:fgs){
+   w.pantallaFg1();  for (Becky b:Beckys)
+   b.personaje2();  for (Pixly p:Pixlys)
+   p.personaje5();}
+if(key=='v' ||key=='V')  
+   for (fg1 r:fg1s){
+   r.pantallaFg2(); for (Becky b:Beckys)
+   b.personaje2();  for (Pixly p:Pixlys)
+   p.personaje5();}
+if(key=='s' ||key=='S')
+    for (fg2 r:fg2s){
+   r.pantallaFg3(); for (Becky b:Beckys)
+   b.personaje2(); scale(0.5); translate(500,1600); rotate(-3.0); for (Pixly p:Pixlys)
+   p.personaje5(); }
+if(key=='w' ||key=='W') 
+    for (win r:wins){
+   r.pantallaWin();}
+if(key=='g' ||key=='G')
+    for (fg4 r:fg4s){
+   r.pantallaFg5();
+ for (Pixly p:Pixlys)
+   p.personaje5();scale(0.4); translate(2500,500); rotate(-5.0); for (Tato t:Tatos)
+t.personaje1();}   }
+// INICIO PERSONAJE 1
+class Tato{ 
+  Tato(int ancho_)
+  {        }
+  void personaje1(){  
+    tato.beginDraw();
+  tato.fill(200);
+  tato.rect(190,200,120,120);   //camisa
+  tato.fill(#CEB37D);       //cuerpo
+  tato.rect(200,200,100,50); tato.rect(210,250,80,20);
+  tato.fill(0);                 //pantalon
+  tato.rect(190,320,120,50); tato.rect(190,370,50,20); tato.rect(260,370,50,20); tato.rect(360,130,30,10);
+  tato.rect(110,130,30,10);
+  tato.fill(24); tato.rect(190,390,50,20); tato.rect(180,410,60,20); tato.rect(260,390,50,20);
+  tato.rect(260,410,60,20);
+tato.fill(255,0,0); tato.noStroke(); tato.ellipse(250,150,180,160);
+  tato.fill(#CEB37D); tato.rect(310,200,10,60);    //brazos
+  tato.rect(320,180,20,70); tato.rect(340,170,10,70); tato.rect(350,170,10,60); tato.rect(360,140,30,80);
+  tato.rect(350,100,50,30); tato.rect(180,200,10,60); tato.rect(160,180,20,70); tato.rect(150,170,10,70);
+  tato.rect(140,170,10,60); tato.rect(110,140,30,80); tato.rect(100,100,50,30);
+  tato.fill(#468603); tato.triangle(250,30,230,100,270,100); tato.triangle(270,40,250,70,269,95);
+  tato.triangle(230,40,230,95,250,70);
+  tato.endDraw();
+ image(tato,-40,230);
+  }   }  //FIN PERSONAJE 1
+//INICION PERSONAJE 2
+ArrayList <Becky> Beckys;
+PGraphics FireGIrl;
+class Becky{
+    Becky(int ancho_)
+  {        }
+  void personaje2(){    
+FireGIrl.beginDraw();
+  FireGIrl.fill(#FF7D03);       //CABELLO
+  FireGIrl.noStroke();  
+ FireGIrl.rect(210,50,60,10); FireGIrl.rect(180,60,120,20); FireGIrl.rect(180,80,130,20); FireGIrl.rect(170,100,140,90);
+ FireGIrl.rect(200,190,10,20); FireGIrl.fill(#F74402); FireGIrl.rect(160,170,20,20); FireGIrl.rect(180,150,10,70);
+ FireGIrl.rect(190,160,10,40); FireGIrl.rect(170,200,40,10); FireGIrl.rect(300,160,10,30); FireGIrl.rect(290,150,10,60);
+ FireGIrl.rect(310,170,10,40); FireGIrl.rect(280,180,10,10); FireGIrl.rect(270,190,20,10); FireGIrl.rect(250,190,10,10);
+ FireGIrl.rect(220,180,10,20); FireGIrl.fill(#25436C); FireGIrl.rect(180,280,120,120); 
+ FireGIrl.fill(#FFC38B);     //ROSTRO
+ FireGIrl.rect(220,80,40,10); FireGIrl.rect(210,90,60,10); FireGIrl.rect(200,100,80,50); FireGIrl.rect(210,150,60,10);
+ FireGIrl.rect(220,160,40,10); FireGIrl.rect(230,170,20,50); FireGIrl.rect(250,200,10,10); FireGIrl.rect(220,200,10,10);
+ FireGIrl.rect(210,250,60,50); FireGIrl.rect(220,330,40,50); FireGIrl.rect(270,250,10,70); FireGIrl.rect(200,250,10,70); 
+ FireGIrl.fill(#DE2612); FireGIrl.rect(205,300,70,30); FireGIrl.rect(235,250,10,5); FireGIrl.rect(230,240,20,10);
+ FireGIrl.fill(0); FireGIrl.rect(220,380,40,20); FireGIrl.rect(210,395,60,10); 
+ FireGIrl.fill(#58320E);        //OJOS
+ FireGIrl.rect(210,100,20,10); FireGIrl.rect(200,110,10,10); FireGIrl.rect(250,100,20,10); FireGIrl.rect(270,110,10,10);
+ FireGIrl.fill(255); FireGIrl.rect(210,110,20,20); FireGIrl.rect(250,110,20,20); FireGIrl.fill(0); 
+ FireGIrl.rect(215,115,10,10); 
+ FireGIrl.rect(255,115,10,10); 
+  FireGIrl.fill(255); FireGIrl.rect(222,115,3,3); FireGIrl.rect(262,115,3,3); 
+ FireGIrl.fill(#E352BA);       //LABIOS
+ FireGIrl.rect(220,140,10,10); FireGIrl.rect(250,140,10,10); FireGIrl.rect(230,150,20,10); 
+ FireGIrl.fill(#644DFF);
+ FireGIrl.rect(230,220,20,20); FireGIrl.rect(220,240,10,10); FireGIrl.rect(250,240,10,10); FireGIrl.rect(210,250,10,20);
+ FireGIrl.rect(260,250,10,20); FireGIrl.rect(200,270,10,30); FireGIrl.rect(270,270,10,30); FireGIrl.rect(190,300,10,40);
+ FireGIrl.rect(280,300,10,40); FireGIrl.rect(180,340,10,20); FireGIrl.rect(290,340,10,20); FireGIrl.rect(170,360,10,40); 
+  FireGIrl.rect(120,390,10,10); FireGIrl.rect(350,390,10,10); FireGIrl.rect(130,380,10,10); FireGIrl.rect(340,380,10,10);
+  FireGIrl.rect(140,370,10,10); FireGIrl.rect(330,370,10,10); FireGIrl.rect(150,350,10,20); FireGIrl.rect(320,350,10,20);
+ FireGIrl.rect(160,320,10,30); FireGIrl.rect(310,320,10,30); FireGIrl.rect(170,290,10,30); FireGIrl.rect(300,290,10,30);
+  FireGIrl.rect(180,270,10,20); FireGIrl.rect(290,270,10,20); FireGIrl.rect(300,360,10,40); FireGIrl.rect(220,210,10,10);
+ FireGIrl.rect(250,210,10,10); FireGIrl.rect(260,190,10,20); FireGIrl.rect(210,190,10,20); FireGIrl.rect(270,200,20,10);
+  FireGIrl.rect(280,210,30,10); FireGIrl.rect(300,210,10,70); FireGIrl.rect(190,210,10,10); FireGIrl.rect(170,210,10,70); 
+ FireGIrl.fill(#4DD7FF); 
+ FireGIrl.rect(200,210,20,10); FireGIrl.rect(260,210,20,10);  FireGIrl.rect(180,220,50,20); FireGIrl.rect(250,220,50,20);
+ FireGIrl.rect(180,240,40,10); FireGIrl.rect(260,240,40,10); FireGIrl.rect(180,250,30,20); FireGIrl.rect(270,250,30,20);
+  FireGIrl.rect(190,260,10,40); FireGIrl.rect(280,260,10,40); FireGIrl.rect(180,290,10,50); FireGIrl.rect(290,290,10,50);
+ FireGIrl.rect(170,320,10,40); FireGIrl.rect(300,320,10,40); FireGIrl.rect(160,350,10,50); FireGIrl.rect(310,350,10,50);
+ FireGIrl.rect(150,370,10,30); FireGIrl.rect(320,370,10,30); FireGIrl.rect(140,380,10,20); FireGIrl.rect(330,380,10,20);
+ FireGIrl.rect(130,390,10,10); FireGIrl.rect(340,390,10,10); 
+ FireGIrl.fill(#FFE921);
+ FireGIrl.rect(238,228,5,5); FireGIrl.rect(258,228,5,5); FireGIrl.rect(218,228,5,5); FireGIrl.rect(288,248,5,5);
+  FireGIrl.rect(288,228,5,5); FireGIrl.rect(188,248,5,5); FireGIrl.rect(188,228,5,5); 
+  FireGIrl.endDraw();
+ image(FireGIrl,590,220);  }    }  //FIN PERSONAJE 2
+ // INICIO PERSONAJE 3
+ ArrayList <Comun> Comuns;
+PGraphics Comun;
+class Comun{  
+  Comun(int ancho_)
+  {        }
+  void personaje3(){    
+    Comun.beginDraw();Comun.fill(255); Comun.ellipse( 500,200,200,200);Comun.strokeWeight(2); 
+    Comun.line(500,300, 500,500); Comun.line(500,500,450,590);
+ Comun.line(500,500,550,590); Comun.line(500,380,450,470); Comun.line(500,380,550,470); Comun.ellipse(455,470,19,15);
+ Comun.ellipse(545,470,19,15); 
+ Comun.fill(#6A2E05); Comun.ellipse(554,512,50,70);
+  Comun.fill(255); Comun.ellipse(554,513,45,64);
+  Comun.strokeWeight(1.3);
+  Comun.fill(#6A2E05); Comun.rect(528,484,100,70);
+ Comun.fill(#FAF326); Comun.rect(562,515,30,20); Comun.fill(#FAF326); Comun.rect(528,484,10,10); 
+ Comun.rect(618,484,10,10); 
+  Comun.fill(0); Comun.beginShape(); Comun.vertex(470,230); Comun.vertex(470,257); Comun.vertex(474,250);
+  Comun.vertex(478,257); Comun.vertex(482,250); Comun.vertex(486,257); Comun.vertex(490,250);
+  Comun.vertex(494,257); Comun.vertex(498,250); Comun.vertex(502,257); Comun.vertex(506,250);
+  Comun.vertex(510,257); Comun.vertex(514,250); Comun.vertex(518,257); Comun.vertex(518,230);
+  Comun.endShape(); Comun.endDraw();
+ image(Comun,-350,100);
+  }  }  // FIN PERSONAJE 3
+// INICIO PERSONAJE 4
+ArrayList <Oraculo> Oraculos;
+int tam=40;
+int posx=650;
+int posy=350;
+int sentidoH = 1;
+int sentidoV = 1;
+int velocidad=15;
+PGraphics Oraculo;
+class Oraculo{  
+  Oraculo(int ancho_)
+  {        }
+  void personaje4(){
+     Oraculo.beginDraw(); Oraculo.fill(#25AF36); Oraculo.noStroke(); Oraculo.triangle(610,406,510,600,680,600);
+ Oraculo.fill(#25AF36); Oraculo.noStroke(); Oraculo.triangle(697,406,630,600,790,600); 
+ Oraculo.fill(random(22,187), random(48,129), random(197,250)); Oraculo.noStroke();
+ Oraculo.triangle(510,600,790,600,657,770);
+Oraculo.fill(0); Oraculo.beginShape();
+  Oraculo.vertex(610,406); Oraculo.vertex(597,430); Oraculo.vertex(620,450); Oraculo.vertex(607,500);
+  Oraculo.vertex(657,590); Oraculo.vertex(700,500); Oraculo.vertex(688,450); Oraculo.vertex(710,430);
+Oraculo.vertex(697,406); Oraculo.endShape(CLOSE);  
+ Oraculo.fill(190,0,304); Oraculo.noStroke(); Oraculo.rect(639,426,30,20); Oraculo.fill(190,0,304);
+  Oraculo.noStroke(); Oraculo.rect(649,446,10,90); 
+Oraculo.fill(0); Oraculo.ellipse(posx,posy,tam,tam);
+  posx= posx+sentidoH * velocidad; posy= posy+sentidoV * velocidad;
+  if((posx + tam/2 >= width-426) || (posx - tam+100 <= 0))
+  {    sentidoH = sentidoH * -1;  }  
+  if((posy + tam/2 >= height-320) || (posy - tam-270 <= 0))
+  {    sentidoV = sentidoV * -1;  }  
+Oraculo.fill(183,176,200,210); Oraculo.ellipse(650,350,140,140); Oraculo.endDraw(); image(Oraculo,200,-100);
+}  }  //FIN PERSONAJE 4  
+ //INICIO PERSONAJE 5
+ ArrayList <Pixly> Pixlys;
+PGraphics PX;
+class Pixly{ 
+  Pixly(int ancho_)
+  {        }
+  void personaje5(){    
+  PX.beginDraw();
+  PX.fill(#3114A7);          //CABELLO
+  PX.noStroke();PX.rect(200,50,50,10); PX.rect(170,60,110,10); PX.rect(160,70,120,10); PX.rect(160,80,110,10);
+  PX.rect(150,90,110,10); PX.rect(150,100,90,10); PX.rect(150,110,80,10); PX.rect(160,120,70,10);
+  PX.rect(150,130,80,10); PX.rect(170,140,60,10); PX.rect(190,150,40,10);  
+  PX.fill(#F0B961);       //CARA
+  PX.noStroke(); PX.rect(230,150,50,10); PX.rect(230,130,60,20); PX.rect(230,110,50,20);
+  PX.rect(240,100,40,10); PX.rect(260,90,20,10); PX.rect(270,80,10,10);   PX.fill(#EAA345); PX.rect(230,160,50,10);  
+  PX.fill(255); PX.noStroke(); PX.rect(240,110,20,20); PX.fill(0);
+  PX.noStroke(); PX.rect(250,115,10,10);//ojos  
+  PX.fill(#1E8104);          //CUERPO
+  PX.noStroke(); PX.rect(280,150,10,20); PX.rect(170,160,60,10); PX.rect(160,170,120,10); PX.rect(200,180,60,10);
+  PX.rect(200,190,50,30); PX.rect(190,210,10,10); PX.rect(180,220,80,10); PX.rect(180,230,30,10); PX.rect(230,230,30,10);  
+  PX.fill(193,34,10);          //PIES
+  PX.rect(170,240,40,10); PX.rect(160,250,50,10); PX.rect(230,240,40,10); PX.rect(230,250,50,10);  
+  PX.fill(255,228,21);      //MANOS
+  PX.rect(160,180,30,20); PX.rect(300,140,30,40);
+   PX.fill(155); PX.rect(290,150,10,20);
+  PX.fill(#FFB115); PX.rect(320,145,10,10); PX.rect(320,165,10,10);  
+  PX.fill(255);              //ESCUDO
+  PX.rect(230,180,10,10); PX.rect(220,180,10,20);
+  PX.endDraw(); image(PX,-90,350);
+}  }  // FIN PERSONAJE 5
+//INICIA CÓDIGO PARA PANTALLA INICIAL
+  ArrayList <inicio> inicios;
+class inicio{
+  inicio(int ancho_)
+  {        }
+  void pantallaInicial(){
+  //INICIA PANTALLA PRINCIPAL
+  background(0);
+fill(#6C0509); noStroke();ellipse(250,250,100,100); ellipse(280,310,50,50); ellipse(350,250,10,10); ellipse(350,290,5,5); 
+ellipse(750,200,130,130); ellipse(790,250,70,70); 
+ellipse(random(50,980),random(30,500),random(30,90),random(30,100));
+ellipse(random(50,980),random(30,500),random(30,90),random(30,100));
+    font = loadFont("BerlinSansFB-Reg-49.vlw");
+  textFont(font);
+  fill(255,0,0);
+ text("EATERS OF WORDS",300,250);
+ font = loadFont("CalifornianFB-Italic-29.vlw");
+  textFont(font);
+  fill(random(222,55), random(38,210), random(97,130));
+ text("Presiona la letra 'M' para elejir a tu personaje",365,350);
+ fill(random(22,187), random(48,129), random(197,250));
+  text("Presiona la letra 'A' para conocer las particularidades de los personajes",210,450); } }
+  // TERMINA PANTALLA PRINCIPAL_SELECCION DE ESCENARIOS
+                           // INICIA ESCENARIO DE CARACTERISTICAS  A
+ArrayList <inicio2> inicio2s;
+class inicio2{  
+  inicio2(int ancho_)
+  {        }
+  void pantallaCaracteristicas(){
+ background(0);
+ font = loadFont("Consolas-48.vlw");
+  textFont(font);
+  fill(random(10,50), random(220,250), random(170,240));
+  text("Características de los personajes",100,50);
+  font = loadFont("NuevaStd-Cond-48.vlw");
+  textFont(font);
+  fill(#E03800);text("FireGirl",20,100);
+  fill(#366204);text("TomatoHead",20,180);
+  fill(255);text("El Abominable Hombre Común",20,320);
+  fill(#FFE415);text("El Oráculo",20,460);
+  fill(#3A02D6); text("Mr. Pixly",20,530);
+ font = loadFont("NuevaStd-Cond-28.vlw");
+  textFont(font);
+  fill(#FF5303);
+  text("Ella disfruta observar las puestas de sol, las naranjas y patear traseros en su tiempo libre",160,100);
+  text("Adorable y peligrosa, no la lleves a un crucero porque se marea fácilmente y por supuesto, nunca la hagas enojar",20,125);    
+  fill(#468301);text("Es el mayor de sus 13 hermanos, aprendió a pelear cuando nació el 5to de ellos",240,180);
+fill(#468301);
+text("no porque necesitara protegerlos o porque su barrio fuese peligroso, sino para alcanzar algo de comida en la casa",20,200);
+ fill(#468301);
+ text("Tato pretende ganar el torneo “Eaters of Words” para así poder averiguar de una vez por todas la pregunta que tanto",17,222);
+    fill(#468301);
+    text("lo ha atormentado durante toda su vida, esa pregunta que su madre nunca supo responder",17,244);
+    fill(#468301);text("¿de dónde vienen los bebes?",17,266);    
+    fill(255); text("Sus pasatiempos son;",500,320); 
+text("Despertar, bañarse, ir a trabajar todo el día, llegar a casa a dormir, despertar, bañarse, ir a trabajar todo el día,",15,345);
+     text("llegar a casa a dormir, despertar, bañarse, ir a trabajar todo el día, llegar a casa a dormir, despertar,",15,370);
+     text("bañarse, ir a trabajar todo el día, llegar a casa a dormir.",15,395);     
+     fill(#FEFF40);text("?   ?   ?  ?   ?   ?   ?",200,460);     
+     fill(#632CFF); text("'No hay nada mejor que jugar Super Mario y Megaman un fin de semana por la tarde'",190,530);
+   text("Eso es lo que piensa Mr. Pixly, sin embargo, a Mr. Pixly le gustaría tener a alguien con quien jugar",15,555);
+    text("'A las chicas les gustan los superhéroes ¿no?, así que ¿Por qué no ser uno?'",15,580);    
+      fill(random(10,50), random(220,250), random(170,240));
+  font = loadFont("Consolas-7.vlw");
+  text("Ahora que conoces a estos simpáticos y letales luchadores, es tiempo de elejir a uno de ellos",170,650);
+   text("PRESS letter 'M' to continue",800,680);
+    }  } //FIN ESCENARIO DE CARACTERISTICAS   A
+//INICIA PANTALLA DE SELECCION  M
+ArrayList <inicio3> inicio3s;
+class inicio3{  
+  inicio3(int ancho_)
+  {        }
+  void pantallaSeleccionn(){
+background(20);   
+      font = loadFont("Consolas-48.vlw");
+  textFont(font);
+  fill(#0D88A0);
+  text("Selecciona tu personaje",220,68);
+  fill(random(10,50), random(220,250), random(170,240));
+  font = loadFont("Consolas-20.vlw");
+  textFont(font);
+  fill(#0D88A0);
+  text("ATK",120,288); text("ATK",410,288); text("ATK",710,288);  text("ATK",120,558); text("ATK",410,558);
+  text("DEF",120,305); text("DEF",410,305); text("DEF",710,305);  text("DEF",120,576); text("DEF",410,576);
+  fill(255,0,0); rect(160,279,10,10); rect(175,279,10,10); rect(190,279,10,10); rect(205,279,10,10); 
+  rect(220,279,10,10); rect(235,279,10,10); 
+  rect(250,279,10,10); rect(265,279,10,10);
+  rect(160,297,10,10); rect(175,297,10,10); rect(190,297,10,10); rect(205,297,10,10);  //UNO
+  rect(450,279,10,10); rect(465,279,10,10); rect(480,279,10,10); rect(495,279,10,10); rect(510,279,10,10);
+  rect(525,279,10,10); rect(525,279,10,10); 
+  rect(540,279,10,10); rect(555,279,10,10); rect(570,279,10,10);
+  rect(450,297,10,10); rect(465,297,10,10);  rect(480,297,10,10); //DOS
+  rect(750,279,10,10); rect(765,279,10,10);
+  rect(750,297,10,10); rect(765,297,10,10); rect(780,297,10,10); rect(795,297,10,10); rect(810,297,10,10); 
+  rect(825,297,10,10); rect(840,297,10,10); 
+  rect(855,297,10,10); //TRES
+  rect(160,550,10,10); rect(175,550,10,10); rect(190,550,10,10); rect(205,550,10,10); rect(220,550,10,10); 
+  rect(235,550,10,10); rect(250,550,10,10); 
+  rect(265,550,10,10); rect(280,550,10,10);
+  rect(160,570,10,10); rect(175,570,10,10); rect(190,570,10,10); rect(205,570,10,10); rect(220,570,10,10); 
+  rect(235,570,10,10); //CUATRO
+  rect(450,550,10,10); rect(465,550,10,10); rect(480,550,10,10); rect(495,550,10,10); rect(510,550,10,10); 
+  rect(525,550,10,10);
+  rect(450,570,10,10); rect(465,570,10,10);  rect(480,570,10,10); rect(495,570,10,10); rect(510,570,10,10);      //CINCO
+  fill(#D4EAFC); rect(180,312,30,30);rect(180,588,30,30);rect(470,312,30,30);rect(470,588,30,30);rect(776,312,30,30);
+  fill(0); font = loadFont("Consolas-20.vlw");textFont(font);  text("E",191,335); text("D",191,610); 
+  text("R",480,335);text("F",480,610);text("T",785,335);
+  font = loadFont("NuevaStd-Cond-25.vlw"); textFont(font); fill(#E03800);text("FireGirl",480,272);
+  fill(#366204);text("TomatoHead",158,272); fill(255);text("ElAbominableHombreComún",750,272); 
+  fill(#FFE415);text("El Oráculo",170,540);
+  fill(#3A02D6); text("Mr. Pixly",460,540);
+    textFont(font);
+    fill(random(10,50), random(220,250), random(170,240));
+  font = loadFont("Consolas-7.vlw");
+  text("(presione la tecla correspondiente)",420,100); { {scale(0.25); translate(590,340);} for (Tato t:Tatos)
+   t.personaje1();}  { {scale(0.955); translate(710,80);} for (Becky b:Beckys) b.personaje2();} 
+ { {scale(0.9); translate(2310,10);} for (Comun c:Comuns) c.personaje3();}
+ {{scale(1.5);translate(-2700,620);}for (Oraculo o:Oraculos) o.personaje4();} 
+ {{translate(1570,50);}for (Pixly p:Pixlys) p.personaje5();}
+}  }  //FIN DE SELECCION DE PERSONAJE   M
+//BATALLA 1.1
+ArrayList <stage2> stage2s;
+class stage2{
+  stage2(int ancho_)
+  {        }
+  void pantallaP2(){
+    background(#FF9A3B); font = loadFont("Consolas-20.vlw");
+ textFont(font);fill(#005166);
+  text("Jugador 1_Tomato Head",85,20); text("V",550,20);text("Jugador 2_Oráculo",750,20); 
+  text("ATAQUE 'push'",750,70);
+  fill(20);rect(900,47,30,30); fill(255,0,0); ellipse(65,17,20,20);rect(100,100,100,20); 
+  rect(830,100,80,20);fill(220); text("I",910,70);text("200",130,118);
+  text("180",860,118); fill(255);rect(910,100,20,20);} }
+//BATALLA 1.2
+ArrayList <stage3> stage3s;
+class stage3{  
+  stage3(int ancho_)
+  {       }
+  void pantallaP3(){
+background(#FF9A3B); font = loadFont("Consolas-20.vlw"); textFont(font);
+text("Jugador 1_Tomato Head",85,20); text("V",550,20);text("Jugador 2_Oráculo",750,20); 
+text("ATAQUE 'push'",85,70);
+  fill(20);rect(240,47,30,30); fill(255,0,0); ellipse(65,17,20,20);rect(100,100,50,20); 
+  rect(830,100,100,20);fill(220); text("X",250,70);text("150",130,118);
+  text("180",860,118); fill(255);rect(910,100,20,20);rect(150,100,50,20);
+  }  }
+//BATALLA 1.3
+ArrayList <stage4> stage4s;
+class stage4{
+  stage4(int ancho_)
+  {     }
+  void pantallaP4(){
+background(#FF9A3B); font = loadFont("Consolas-20.vlw"); textFont(font);
+text("Jugador 1_Tomato Head",85,20); text("V",550,20);text("Jugador 2_Oráculo",750,20); 
+text("ATAQUE 'push'",750,70);
+  fill(20);rect(900,47,30,30); fill(255,0,0); ellipse(65,17,20,20);rect(100,100,50,20); 
+  rect(830,100,100,20);fill(255); text("C",910,70);text("150",130,118);
+  text("160",860,118); fill(255);rect(894,100,40,20);rect(150,100,50,20);
+  }  }
+//BATALLA 1.4
+ArrayList <stage6> stage6s;
+class stage6{ 
+  stage6(int ancho_)
+  {      }
+  void pantallaP6(){
+background(#FF9A3B); font = loadFont("Consolas-20.vlw"); textFont(font);
+text("Jugador 1_Tomato Head",85,20); text("V",550,20);text("Jugador 2_Oráculo",750,20);
+text("ATAQUE 'push'",85,70);
+  fill(20);rect(240,47,30,30); fill(255,0,0); ellipse(65,17,20,20);rect(100,100,50,20); 
+  rect(830,100,100,20);fill(220); text("1",250,70);text("100",130,118);
+  text("160",860,118); fill(255);rect(894,100,40,20);rect(120,100,80,20);
+  }  }
+//BATALLA 1.5
+ArrayList <stage7> stage7s;
+class stage7{  
+  stage7(int ancho_)
+  {       }
+  void pantallaP7(){
+background(#FF9A3B); font = loadFont("Consolas-20.vlw"); textFont(font);
+text("Jugador 1_Tomato Head",85,20); text("V",550,20);text("Jugador 2_Oráculo",750,20); 
+text("ATAQUE 'push'",750,70);
+  fill(20);rect(900,47,30,30); fill(255,0,0); ellipse(65,17,20,20);rect(100,100,50,20); 
+  rect(830,100,100,20);fill(255); text("3",910,70);text("150",130,118);
+  text("140",860,118); fill(255);rect(890,100,44,20);rect(120,100,80,20);
+  }  }
+//batalla 1.6
+ArrayList <stage8> stage8s;
+class stage8{ 
+  stage8(int ancho_)
+  {      }
+  void pantallaP8(){background(#FF9A3B); font = loadFont("Consolas-20.vlw"); textFont(font);
+text("Jugador 1_Tomato Head",85,20); text("V",550,20);text("Jugador 2_Oráculo",750,20);
+  fill(255,0,0); ellipse(65,17,20,20);rect(100,100,50,20); rect(830,100,100,20);fill(220);
+  text("140",860,118); fill(255);rect(890,100,44,20);rect(100,100,100,20);  fill(#274A74); 
+  text("press U>>",600,350);
+  font = loadFont("CharlemagneStd-Bold-88.vlw"); textFont(font); fill(#274A74);
+text("YOU LOSE",85,320);
+  }  } //FIN BATALLA 1
+//PANTALLA PERDEDORA
+ArrayList <lose> loses;
+class lose{  
+  lose(int ancho_)
+  {       }
+  void pantallaLose(){ background(0);  
+ font = loadFont("CalifornianFB-Italic-29.vlw");
+  textFont(font);
+  fill(random(97,255));
+ text("Parece ser que no eres digno del poder ilimitado que te ofrecemos",155,50);
+  text("tus habilidades de combate no fueron lo suficientemente buenas",162,100);
+  text("Pero el torneo Eaters of Words siempre te brinda una oportunidad más",135,150);
+  text("¡¡¡¡¡Mejora tus habilidades y regresa para desafiar al Destino!!!!!",162,200);
+  text("(y a otros 4 jugadores con nombres ridículos)",175,227); text("De lo contrario muere y deja vivir",475,360);
+  fill(random(255,0),random(1,240),random(89,255)); text("**Presiona ENTER para continuar >>",405,290);
+}  } //FIN PANTALLA PERDEDORA
+//INICIA PELEA 2
+ArrayList <fg> fgs;
+class fg{  
+  fg(int ancho_)
+  {      }
+  void pantallaFg1(){
+background(270,50,180); font = loadFont("Consolas-20.vlw"); textFont(font); fill(#006601);
+text("Jugador 1_Mr. Pixly",85,20); text("V",550,20);text("Jugador 2_FireGirl",750,20); 
+text("ATAQUE 'push'",85,70);
+  fill(20);rect(240,47,30,30); fill(255,0,0); ellipse(730,17,20,20);rect(100,100,60,20); 
+  rect(830,100,100,20);fill(220); text("V",250,70);text("160",130,118);
+  text("200",860,118); fill(255);rect(160,100,40,20);
+  }  } //FIN PELEA 2.1
+//INICIA PEALEA 2.2
+ArrayList <fg1> fg1s;
+class fg1{  
+  fg1(int ancho_)
+  {     }
+  void pantallaFg2(){
+background(270,50,180); font = loadFont("Consolas-20.vlw"); textFont(font); fill(#006601);
+text("Jugador 1_Mr. Pixly",85,20); text("V",550,20);text("Jugador 2_FireGirl",750,20); 
+text("ATAQUE 'push'",85,70);
+  fill(20);rect(240,47,30,30); fill(255,0,0); ellipse(730,17,20,20);rect(100,100,60,20); 
+  rect(830,100,100,20);fill(220); text("S",250,70);text("160",130,118);
+  text("200",860,118); fill(255);rect(160,100,40,20); fill(#5B00B2); 
+  text("¡Parece ser que el oponente 1 no se atreve a golpear a una mujer!",20,170);
+  text("Será acaso que Mr.Pixly se ha enamorado de su contrincante  ??",16,190); 
+  text("¡Esto no puede terminar así, Mr.Pixly TIENE QUE ATACAR!",16,300);
+  fill(random(125,250),random(190,0),random(100,200));
+  text("FireGirl se sonroja, Mr. Pixly le parece muy lindo...",400,250);
+  }
+}  //FIN PELEA 2.2
+//INICIA PELEA 2.3
+ArrayList <fg2> fg2s;
+class fg2{ 
+  fg2(int ancho_)
+  {       }
+  void pantallaFg3(){
+background(270,50,180); font = loadFont("Consolas-20.vlw"); textFont(font); fill(#006601);
+text("Jugador 1_Mr. Pixly",85,20); text("V",550,20);text("Jugador 2_FireGirl",750,20);
+  fill(255,0,0); ellipse(730,17,20,20); rect(830,100,100,20);fill(220);
+  text("200",860,118); fill(255);rect(100,100,100,20); fill(#5B00B2); 
+  text("...FireGirl aprovecha la situación y ataca",490,180);
+  text("¡¡¡¡FRIENDZONE!!!!",500,227); text("FRIENDZONE para Mr.Pixly",480,260);
+  fill(#274A74); text("press W>>",580,420);
+  font = loadFont("CharlemagneStd-Bold-88.vlw"); textFont(font); fill(#274A74);
+text("YOU WIN",88,390);
+  }  }//FIN PELEA 2
+//INICIA PANTALLA GANADORA
+ArrayList <win> wins;
+class win{ 
+  win(int ancho_)
+  {    }
+  void pantallaWin(){ background(0);
+font = loadFont("BerlinSansFB-Reg-49.vlw");
+  textFont(font);
+  fill(random(97,255),random(60,124),random(100,233));
+ text("FELICIDADES",385,60);
+ font = loadFont("CalifornianFB-Italic-29.vlw");
+  textFont(font); fill(#DBC202);
+  text("Derrotaste a todos tus adversarios. Haz demostrado valor, fuerza y determinación",100,100);
+  text("Supiste aprovechar las debilidades de tus oponentes y tu estrategia de batalla",115,140);
+  text("Ahora tienes todo el universo en tus manos",322,180);
+  text("Conocimiento y poder ilimitado",400,220); 
+  text("Durante los próximos 2000 años, podrás visitar millones de planetas, crear o destruir vida",40,260);
+  text("y comer todo el helado que quieras",370,300);
+  text("Pero para poder hacer todo eso, tendrás que esperar al siguiente juego llamado",90,340); fill(#DB2E02);
+  text("EATERS OF WORD 2",410,380);
+  text("*Con más de 20 personajes seleccionables",370,417);
+  text("*Sistema online premium",370,447);
+  text("*Cientos de secretos por descubrir",370,477);
+  text("*Menos Bugs",370,507);
+  text("*Innecesarias actualizaciones",370,537);
+  text("*Compras de expanciones de juego igualmente innecesarias",370,567);
+  text("Y mucho mucho más",370,597);
+  fill(random(255,0),random(1,240),random(89,255)); text("**Presiona ENTER para continuar>>",605,650);
+} } //Fin pantalla ganadora
+//PELEA 3
+ArrayList <fg4> fg4s;
+class fg4{
+  fg4(int ancho_)
+  {    }
+  void pantallaFg5(){ background(random(0,255),random(255,90),random(100,200));
+ font = loadFont("Consolas-20.vlw"); textFont(font); fill(#B5A600);
+text("Jugador 1_Mr. Pixly",85,20); text("V",550,20);text("Jugador 2_Tomato Head",750,20);
+text("FELICIDADES aprovechaste el bug",185,70);
+  fill(255,0,0); ellipse(65,17,20,20);rect(100,100,100,20);fill(220); text("200",130,118);
+  fill(255);rect(830,100,100,20);
+    fill(#274A74); text("press W>>",580,420);
+  font = loadFont("CharlemagneStd-Bold-88.vlw"); textFont(font); fill(#274A74);
+text("YOU WIN",88,390);} }
